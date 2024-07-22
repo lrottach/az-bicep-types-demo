@@ -24,7 +24,7 @@ param rgName string
 param adminUsername string
 @secure()
 param adminPassword string
-param vmProperties vmParameterType
+param vmProperties vmParameterType // <-- Our user-defined data type
 
 // Virtual Network parameter
 param vnetName string
