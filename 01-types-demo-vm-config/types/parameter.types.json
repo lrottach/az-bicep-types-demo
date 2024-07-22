@@ -1,0 +1,74 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.29.45.22436",
+      "templateHash": "12685192605223879300"
+    }
+  },
+  "definitions": {
+    "vmParameterType": {
+      "type": "object",
+      "properties": {
+        "vmName": {
+          "type": "string"
+        },
+        "vmSize": {
+          "type": "string",
+          "allowedValues": [
+            ""
+          ]
+        },
+        "osDiskSize": {
+          "type": "int",
+          "allowedValues": [
+            128,
+            256,
+            512
+          ]
+        },
+        "dataDisks": {
+          "$ref": "#/definitions/dataDisksType"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dataDiskType": {
+      "type": "object",
+      "properties": {
+        "diskSize": {
+          "type": "int",
+          "allowedValues": [
+            128,
+            256,
+            512
+          ],
+          "metadata": {
+            "description": "Size of the data disk"
+          }
+        },
+        "diskTier": {
+          "type": "string",
+          "allowedValues": [
+            "Premium",
+            "Standard"
+          ],
+          "metadata": {
+            "description": "Performance tier of the data disk"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "dataDisksType": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dataDiskType"
+      }
+    }
+  },
+  "resources": {}
+}
